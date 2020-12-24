@@ -1,0 +1,18 @@
+Dans une base de données simple, nous aurons au moins ces trois objets: étudiants, cours et inscription aux cours.
+Les étudiants auront au moins le nom et la carte d'identité de l'étudiant, et auront probablement d'autres informations
+personnelles.Les cours contiendront le nom et l'ID du cours, et contiendront probablement la description du cours,
+le professeur, etc. 
+
+Notre requête SQL pour obtenir la liste des étudiants au tableau d'honneur pourrait ressembler à ceci:
+{
+
+	SELECT StudentName, GPA
+		FROM (
+  			SELECT top 10 percent Avg(CourseEnrollment.Grade) AS GPA,
+   			CourseEnrollment.StudentID
+  			FROM CourseEnrollment
+ 			GROUP BY CourseEnrollment.StudentID
+  			ORDER BY Avg(CourseEnrollment.Grade)) Honors
+		INNER JOIN Students ON Honors.StudentID = Students.StudentID
+
+}		
