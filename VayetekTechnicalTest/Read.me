@@ -1,0 +1,22 @@
+Objected Oriented Design
+Question 1:
+1. Il existe trois types d'employés: les répondants, les gestionnaires et les administrateurs
+2. Lorsqu'un appel arrive, il est d'abord attribué aux répondants.
+3. Si aucun répondant n'est libre ou n'est pas en mesure de le gérer, il est transmis aux gestionnaires.
+4. Si aucun gestionnaire n'est libre ou n'est pas en mesure de le gérer, il est alors transmis aux directeurs.
+
+   Mon processus de pensée
+
+   Découvrir les objets de base
+   -------------------------
+   Employé (Fresher, Product Manager PM, Technical Lead TL ), Call, Caller, CallManager
+
+   La relation entre les Objets
+   -------------------------
+   CallManager compte de nombreux employés
+   Il ne peut y avoir qu'un seul appel par employé
+   Il ne peut y avoir qu'un seul appelant par appelant
+   Un employé ne peut gérer qu'un seul appelant à la fois
+
+   CallManager gère tout
+
